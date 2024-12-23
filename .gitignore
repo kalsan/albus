@@ -1,0 +1,6 @@
+/.bundle
+/vendor/bundle
+
+.rubocop.yml
+.yardoc
+/pkg/*

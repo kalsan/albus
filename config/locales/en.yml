@@ -1,0 +1,8 @@
+en:
+  albus:
+    data_was_submitted: 'The step was saved.'
+    save_draft: 'Save draft'
+    finalize: 'Finalize'
+    save: 'Save'
+    next_step: 'Next step'
+    previous_step: 'Previous step'

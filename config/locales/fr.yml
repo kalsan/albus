@@ -1,0 +1,8 @@
+fr:
+  albus:
+    data_was_submitted: "L'étape a été sauvegardée."
+    save_draft: "Enregistrer le brouillon"
+    finalize: "Finaliser"
+    save: "Sauvegarder"
+    next_step: "Étape suivante"
+    previous_step: "Étape précédente"
