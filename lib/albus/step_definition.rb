@@ -128,6 +128,11 @@ module Albus
     end
 
     # DSL method
+    def skip_save_draft
+      @skip_save_draft = true
+    end
+
+    # DSL method
     # This completes this steps, creates the next one and redirects to it.
     # Note: This assumes that validation has already been performed in the standalone blocks.
     def complete_step!(next_step: nil)
@@ -177,6 +182,10 @@ module Albus
 
     def final_step?
       !!@final_step_config
+    end
+
+    def skip_save_draft?
+      !!@skip_save_draft
     end
 
     def record

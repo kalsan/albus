@@ -40,7 +40,7 @@ module Albus
                 concat next_step_form_button if data.astep.next_step
               else
                 # save draft button
-                concat save_draft_form_button
+                concat save_draft_form_button unless step_definition.skip_save_draft?
                 # all possible next step buttons
                 step_definition.next_step_configs.each_value { |next_step_config| concat next_to_new_step_form_button(next_step_config) }
                 concat finalize_form_button if step_definition.final_step?
