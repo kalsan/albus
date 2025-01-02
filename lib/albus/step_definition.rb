@@ -54,7 +54,10 @@ module Albus
     # DSL method
     # Sets the layout this component will be rendered with
     def layout(layout)
-      @layout = layout.to_sym
+      self.class.setup do
+        standalone(:new) { layout layout}
+        standalone(:edit) { layout layout}
+      end
     end
 
     # DSL method
