@@ -21,7 +21,7 @@ module Albus
         end
 
         step_definition.fields.each do |name, field|
-          attribute name, field.rails_type
+          attribute name, field.rails_type, default: field.default_value_proc
           field name, field.compony_type
         end
 

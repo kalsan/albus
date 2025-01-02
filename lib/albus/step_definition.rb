@@ -63,11 +63,11 @@ module Albus
     # DSL method
     # Adds a field to the step data model. This also creates an attribute, behaving similarly to a model column.
     # The field will automatically be displayed in the form and the schema will auto-adjust as well.
-    def field(name, compony_type, rails_type: compony_type)
+    def field(name, compony_type, rails_type: compony_type, default: nil)
       name = name.to_sym
       rails_type = rails_type.to_sym
       compony_type = compony_type.to_sym
-      @fields[name] = Compony::MethodAccessibleHash.new(name:, compony_type:, rails_type:)
+      @fields[name] = Compony::MethodAccessibleHash.new(name:, compony_type:, rails_type:, default_value_proc: default)
     end
 
     # DSL method
