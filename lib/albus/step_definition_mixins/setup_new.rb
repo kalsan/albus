@@ -38,6 +38,10 @@ module Albus
             end
             assign_attributes # enables block defined below
             store_data do
+              # Propagate parameters prematurely, making sure that @record can be created if it has presence validations for fields of the first step
+              # In the use case where this becomes relevant, skip_save_draft is typically used.
+              @record.assign_attributes(**@data.slice(*@fields_to_propagate.map(&:to_s))) if @fields_to_propagate&.any?
+
               if params[:button] == 'save_draft' || @data.validate # Skip validation if we're just saving a draft
                 @astep = Astep.new(
                   step_definition_kind: @step_definition_kind,
