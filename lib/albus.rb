@@ -17,6 +17,7 @@ end
 require 'anchormodel'
 require 'compony'
 
+require 'albus/step_definition_kind'
 require 'albus/astep_mixin'
 require 'albus/engine'
 require 'albus/final_step_config'

@@ -19,6 +19,7 @@ task :gemspec do
 
     s.add_runtime_dependency 'rails', '>= 7.2.1'
     s.add_runtime_dependency 'compony', '>= 0.5.3'
+    s.add_runtime_dependency 'anchormodel', '>= 0.2.4'
   end
 
   File.open('albus.gemspec', 'w') do |f|
