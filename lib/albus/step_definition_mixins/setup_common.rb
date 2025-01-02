@@ -96,13 +96,13 @@ module Albus
               if @astep
                 record.asteps.order(index: :asc).each do |step|
                   if @astep.id == step.id
-                    div component.label, class: 'albus-current-step'
+                    div component.label, class: 'albus-step albus-step-current'
                   else
-                    div edit_step_link(step), class: 'albus-step-link'
+                    div edit_step_link(step), class: 'albus-step albus-step-link'
                   end
                 end
               else
-                div component.label, class: 'albus-current-step'
+                div component.label, class: 'albus-step albus-step-current'
               end
             end
           end
