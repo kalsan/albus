@@ -105,6 +105,10 @@ module Albus
       @fields_to_propagate = fields_to_propagate.map(&:to_sym)
     end
 
+    def propagate_all
+      @fields_to_propagate = @fields.keys.map(&:to_sym)
+    end
+
     # DSL method
     def on_submitted(&block)
       @on_submitted_block = block
