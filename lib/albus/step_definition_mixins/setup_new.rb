@@ -17,6 +17,7 @@ module Albus
         end
 
         standalone :new, path: [family_name, comp_name].join('/') do
+          layout @layout if @layout.present?
           verb :get do
             authorize { can?(:new, @cancancan_subject || fail("You must call `cancancan_subject` in #{component.class}.")) }
             load_data do

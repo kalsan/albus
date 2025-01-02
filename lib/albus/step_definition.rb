@@ -52,6 +52,12 @@ module Albus
     end
 
     # DSL method
+    # Sets the layout this component will be rendered with
+    def layout(layout)
+      @layout = layout.to_sym
+    end
+
+    # DSL method
     # Adds a field to the step data model. This also creates an attribute, behaving similarly to a model column.
     # The field will automatically be displayed in the form and the schema will auto-adjust as well.
     def field(name, compony_type, rails_type: compony_type)

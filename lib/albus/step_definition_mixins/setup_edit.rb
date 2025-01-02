@@ -17,6 +17,7 @@ module Albus
 
         setup do
           standalone :edit, path: [family_name, comp_name, ':id'].join('/') do
+            layout @layout if @layout.present?
             verb :get do
               authorize { can?(:edit, @cancancan_subject || fail("You must call `cancancan_subject` in #{component.class}.")) }
               load_data do # This override allows for dynamic submit verb generation.
