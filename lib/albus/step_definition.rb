@@ -40,8 +40,8 @@ module Albus
 
     # DSL method
     # Use this to set the cancancan subject, e.g. the model class of record (must provide this key)
-    def cancancan_subject(subject)
-      @cancancan_subject = subject
+    def cancancan_subject(subject = nil)
+      @cancancan_subject ||= subject
     end
 
     # DSL method

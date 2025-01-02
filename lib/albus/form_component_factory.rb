@@ -17,7 +17,7 @@ module Albus
               instance_exec(&custom_form_fields_block)
             else
               step_definition.fields.each_key do |name|
-                concat field name
+                concat field(name, label: step_definition.cancancan_subject.human_attribute_name(name.to_sym))
               end
             end
             step_definition.initial_step_params&.each do |param_name| # this only applies to initial steps
