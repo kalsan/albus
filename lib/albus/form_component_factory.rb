@@ -13,15 +13,17 @@ module Albus
         # The form component's setup
         setup do
           form_fields do
-            if custom_form_fields_block
-              instance_exec(&custom_form_fields_block)
-            else
-              step_definition.fields.each_key do |name|
-                concat field(name, label: step_definition.cancancan_subject.human_attribute_name(name.to_sym))
+            div class: 'albus-form' do
+              if custom_form_fields_block
+                instance_exec(&custom_form_fields_block)
+              else
+                step_definition.fields.each_key do |name|
+                  concat field(name, label: step_definition.cancancan_subject.human_attribute_name(name.to_sym))
+                end
               end
-            end
-            step_definition.initial_step_params&.each do |param_name| # this only applies to initial steps
-              concat hidden_field_tag param_name, params[param_name]
+              step_definition.initial_step_params&.each do |param_name| # this only applies to initial steps
+                concat hidden_field_tag param_name, params[param_name]
+              end
             end
           end
           schema_fields(*step_definition.fields.keys)

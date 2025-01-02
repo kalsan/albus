@@ -92,16 +92,18 @@ module Albus
           end
 
           content :breadcrumb, before: :main do
-            if @astep
-              record.asteps.order(index: :asc).each do |step|
-                if @astep.id == step.id
-                  div component.label
-                else
-                  div edit_step_link(step)
+            div class: 'albus-breadcrumb' do
+              if @astep
+                record.asteps.order(index: :asc).each do |step|
+                  if @astep.id == step.id
+                    div component.label, class: 'albus-current-step'
+                  else
+                    div edit_step_link(step), class: 'albus-step-link'
+                  end
                 end
+              else
+                div component.label, class: 'albus-current-step'
               end
-            else
-              div component.label
             end
           end
         end
